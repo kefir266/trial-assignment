@@ -8,6 +8,13 @@ import { BookComponent } from './book/book.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ShowcaseComponent } from './showcase/showcase.component';
 import { SearchComponent } from './search/search.component';
+import {BooksService} from './services/books.service';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import {CountriesService} from './services/countries.service';
+import {CompaniesService} from './services/companies.service';
+import {CitiesService} from './services/cities.service';
+import {FormatsService} from './services/formats.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +27,17 @@ import { SearchComponent } from './search/search.component';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    BooksService,
+    CountriesService,
+    CompaniesService,
+    CitiesService,
+    FormatsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

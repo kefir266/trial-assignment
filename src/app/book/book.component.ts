@@ -1,4 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import {BooksService} from '../services/books.service';
+import {Ibook} from '../interfaces/ibook';
+import {ActivatedRoute} from '@angular/router';
+import {CountriesService} from '../services/countries.service';
+import {Book} from '../book';
+import {Icountry} from '../interfaces/icountry';
+import {Icity} from '../interfaces/icity';
+import {Icompany} from '../interfaces/icompany';
+import {CompaniesService} from '../services/companies.service';
+import {CitiesService} from '../services/cities.service';
+import {FormatsService} from '../services/formats.service';
+import {Iformat} from '../interfaces/iformat';
+
 
 @Component({
   selector: 'app-book',
@@ -6,9 +19,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookComponent implements OnInit {
 
-  constructor() { }
+  book: Book = new Book();
+  countries: Icountry[];
+  cities: Icity[];
+  companies: Icompany[];
+  formats: Iformat[];
+
+  constructor(
+    private bookService: BooksService,
+    private route: ActivatedRoute,
+    private countriesService: CountriesService,
+    private companiesService: CompaniesService,
+    private citiesService: CitiesService,
+    private formatService: FormatsService
+  ) { }
 
   ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.bookService.getBook(id)
+      .subscribe((res: Ibook) => {
+        this.book = res;
+      });
+    this.countriesService.getCountries().subscribe( (res: Icountry[]) => {
+        this.countries = res;
+      }
+    );
+    this.companiesService.getCompanies().subscribe( (res: Icompany[]) => {
+        this.companies = res;
+      }
+    );
+    this.citiesService.getCities().subscribe( (res: Icity[]) => {
+        this.cities = res;
+      }
+    );
+    this.formatService.getFormats().subscribe( (res: Icity[]) => {
+        this.formats = res;
+      }
+    );
   }
+
 
 }
