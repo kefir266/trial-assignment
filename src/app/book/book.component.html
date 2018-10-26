@@ -1,44 +1,68 @@
 <div class="form-wrapper">
 
-  <form>
+  <form (ngSubmit)="onSubmit()">
 
     <h3 class="mb-4">Book Info</h3>
 
     <div class="form-group">
       <label for="author">Author</label>
-      <input class="form-control" id="author" [(ngModel)]="book.author" name="Author">
+      <input
+        class="form-control"
+        id="author"
+        [(ngModel)]="book.author"
+        name="Author"
+        required>
+      <i class="alert-danger">required</i>
     </div>
 
     <div class="form-group">
       <label for="title">Title</label>
-      <input class="form-control" id="title" [(ngModel)]="book.title" name="Title">
+      <input class="form-control" id="title" [(ngModel)]="book.title" name="Title" required>
+      <i class="alert-danger">required</i>
     </div>
 
     <div class="form-group">
       <label for="isbn">ISBN</label>
-      <input class="form-control" id="isbn" [(ngModel)]="book.isbn" name="ISBN">
+      <input class="form-control" id="isbn" [(ngModel)]="book.isbn" name="ISBN" required>
+      <i class="alert-danger">required</i>
     </div>
 
     <div class="form-group">
       <label for="pages">Number of Pages</label>
-      <input class="form-control" id="pages" [(ngModel)]="book.pages" name="Pages">
+      <input
+        type="number"
+        class="form-control"
+        id="pages"
+        [(ngModel)]="book.pages"
+        name="Pages" [min]="1"
+        required>
+      <i class="alert-danger">required</i>
     </div>
 
     <div class="form-group">
       <label for="format">Format</label>
-      <select class="form-control" id="format" [(ngModel)]="book.formatId" name="Format">
+      <select class="form-control" id="format" [(ngModel)]="book.formatId" name="Format" required>
         <option *ngFor="let format of formats" value="{{format.id}}">{{format.name}}</option>
       </select>
+      <i class="alert-danger">required</i>
     </div>
 
     <div class="form-group">
       <label for="description">Description</label>
-      <textarea class="form-control" id="description" rows="3"  [(ngModel)]="book.description" name="Description"></textarea>
+      <textarea
+        class="form-control"
+        id="description"
+        rows="3"
+        [(ngModel)]="book.description"
+        name="Description"
+        required></textarea>
+      <i class="alert-danger">required</i>
     </div>
 
     <div class="form-group">
       <label for="price">Price</label>
-      <input class="form-control" id="price"  [(ngModel)]="book.price" name="Price">
+      <input type="number" class="form-control" id="price"  [(ngModel)]="book.price" name="Price" required>
+      <i class="alert-danger">required</i>
     </div>
 
     <hr class="m-1 mb-5 mt-5">
@@ -47,23 +71,26 @@
 
     <div class="form-group">
       <label for="country">Country</label>
-      <select class="form-control" id="country" [(ngModel)]="book.countryId" name="Country">
+      <select class="form-control" id="country" [(ngModel)]="book.countryId" name="Country" required>
         <option *ngFor="let country of countries" value="{{country.id}}">{{country.name}}</option>
       </select>
+      <i class="alert-danger">required</i>
     </div>
 
     <div class="form-group">
       <label for="city">City</label>
-      <select class="form-control" id="city" [(ngModel)]="book.cityId" name="City">
+      <select class="form-control" id="city" [(ngModel)]="book.cityId" name="City" required>
         <option *ngFor="let city of cities" value="{{city.id}}">{{city.name}}</option>
       </select>
+      <i class="alert-danger">required</i>
     </div>
 
     <div class="form-group">
       <label for="company">Company</label>
-      <select class="form-control" id="company" [(ngModel)]="book.companyId" name="Company">
+      <select class="form-control" id="company" [(ngModel)]="book.companyId" name="Company" required>
         <option *ngFor="let company of companies" value="{{company.id}}">{{company.name}}</option>
       </select>
+      <i class="alert-danger">required</i>
     </div>
 
     <button type="submit" class="btn btn-primary mt-4">Submit</button>

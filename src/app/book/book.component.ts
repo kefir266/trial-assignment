@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BooksService} from '../services/books.service';
 import {Ibook} from '../interfaces/ibook';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CountriesService} from '../services/countries.service';
 import {Book} from '../book';
 import {Icountry} from '../interfaces/icountry';
@@ -26,6 +26,7 @@ export class BookComponent implements OnInit {
   formats: Iformat[];
 
   constructor(
+    private router: Router,
     private bookService: BooksService,
     private route: ActivatedRoute,
     private countriesService: CountriesService,
@@ -36,10 +37,12 @@ export class BookComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.bookService.getBook(id)
-      .subscribe((res: Ibook) => {
-        this.book = res;
-      });
+    if (+id > 0) {
+      this.bookService.getBook(id)
+        .subscribe((res: Ibook) => {
+          this.book = res;
+        });
+    }
     this.countriesService.getCountries().subscribe( (res: Icountry[]) => {
         this.countries = res;
       }
@@ -58,5 +61,11 @@ export class BookComponent implements OnInit {
     );
   }
 
-
+  onSubmit() {
+    this.bookService.save(this.book).subscribe((res: Ibook) => {
+      if (res.id) {
+        this.router.navigate([`book/${res.id}`]);
+      }
+    });
+  }
 }
