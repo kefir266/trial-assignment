@@ -8,13 +8,14 @@ import { BookComponent } from './book/book.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ShowcaseComponent } from './showcase/showcase.component';
 import { SearchComponent } from './search/search.component';
-import {BooksService} from './services/books.service';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
-import {CountriesService} from './services/countries.service';
-import {CompaniesService} from './services/companies.service';
-import {CitiesService} from './services/cities.service';
-import {FormatsService} from './services/formats.service';
+import { BooksService } from './services/books.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CountriesService } from './services/countries.service';
+import { CompaniesService } from './services/companies.service';
+import { CitiesService } from './services/cities.service';
+import { FormatsService } from './services/formats.service';
+import { BookItemComponent } from './components/book-item/book-item.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {FormatsService} from './services/formats.service';
     BookComponent,
     NavigationComponent,
     ShowcaseComponent,
-    SearchComponent
+    SearchComponent,
+    BookItemComponent
   ],
   imports: [
     AppRoutingModule,

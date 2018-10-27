@@ -12,18 +12,13 @@ export class ShowcaseComponent implements OnInit {
 
   bookObs$: Observable<Ibook[]>;
 
-  constructor(private bookService: BooksService, private router: Router,) { }
+  constructor(private bookService: BooksService) { }
 
   ngOnInit() {
     this.bookObs$ = this.getBooks();
   }
 
   getBooks() {
-    return this.bookService.getBooks();
+    return this.bookService.getBooks(null);
   }
-
-  openBook(book) {
-    this.router.navigate([`book/${book.id}`]);
-  }
-
 }

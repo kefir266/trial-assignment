@@ -2,10 +2,11 @@
   <h3 class="text-center">List Of Books</h3>
 
   <div>
-    <div *ngFor="let book of bookObs$ | async"
-         [routerLink]="['/book', book.id]"
-    >
-      <div>{{book.id}}</div><div>{{book.author}}</div><div>{{book.title}}</div>
+    <div>
+      <app-book-item
+        *ngFor="let book of bookObs$ | async"
+        [book]="book"
+      ></app-book-item>
     </div>
   </div>
 </div>

@@ -24,7 +24,7 @@
       "companyId": 25,
       "formatId": 2,
       "description": "Twice amended to bring it to documentary decorum and the kind of textual completion Proust himself could never achieve.",
-      "price": 321.00
+      "price": 321
     },
     {
       "id": 3,
@@ -50,7 +50,33 @@
       "companyId": 14,
       "formatId": 4,
       "description": " The hardback is stitched and bound to keep, so it is worth your money.",
-      "price": 777.00
+      "price": 777
+    },
+    {
+      "author": "test",
+      "title": "test",
+      "isbn": "2",
+      "pages": 0,
+      "description": "erth",
+      "price": "3",
+      "formatId": "2",
+      "countryId": "2",
+      "cityId": "17",
+      "companyId": "18",
+      "id": 5
+    },
+    {
+      "author": "fdgdf",
+      "title": "dfgd",
+      "isbn": "dfgdfg",
+      "pages": -70,
+      "description": "tregdfh",
+      "price": 2.24,
+      "formatId": "2",
+      "countryId": "3",
+      "cityId": "18",
+      "companyId": "18",
+      "id": 6
     }
   ],
   "formats": [
